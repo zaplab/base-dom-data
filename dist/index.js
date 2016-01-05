@@ -18,7 +18,7 @@ function store(element, name, value) {
         element.zapData = {};
     }
 
-    var storage = element.zapData;
+    const storage = element.zapData;
     storage[name] = value;
 }
 
@@ -33,8 +33,8 @@ function retrieve(element, name, defaultValue) {
         element.zapData = {};
     }
 
-    var storage = element.zapData;
-    var value = storage[name];
+    const storage = element.zapData;
+    let value = storage[name];
 
     if (typeof value === 'undefined' && typeof defaultValue !== 'undefined') {
         value = defaultValue;
@@ -50,7 +50,7 @@ function retrieve(element, name, defaultValue) {
  */
 function clear(element, name) {
     if (typeof element.zapData !== 'undefined') {
-        var storage = element.zapData;
+        const storage = element.zapData;
 
         if (typeof name !== 'undefined') {
             delete storage[name];
