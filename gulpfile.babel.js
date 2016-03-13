@@ -112,10 +112,17 @@ gulp.task('js', [
         .on('error', onError);
 });
 
+gulp.task('copy:js', () => {
+    return gulp.src('src/*.js')
+        .pipe(gulp.dest('dist/es6'))
+        .on('error', onError);
+});
+
 gulp.task('default', ['clean'], gulpCallback => {
     runSequence(
         'test',
         'js',
+        'copy:js',
         gulpCallback
     );
 });
