@@ -31,13 +31,13 @@ gulp.task('eslint', () => {
 
 // for easier debugging of the generated spec bundle
 gulp.task('specs:debug', gulpCallback => {
-    let webpackConfig = Object.assign({}, require('./webpack-karma.config.js'), {
+    const webpackConfig = Object.assign({}, require('./webpack.config.js'), {
         context: __dirname,
         entry: 'tests/spec/main.js',
         output: {
             path: 'tests/spec-debug/',
             filename: 'bundle.js',
-        }
+        },
     });
 
     webpack(webpackConfig, (err, stats) => {
