@@ -72,19 +72,19 @@
 	    });
 
 	    describe('store', function () {
-	        it('zapData.store(Element, "key", "value") should store a string successful', function () {
+	        it('zapDataStore(Element, "key", "value") should store a string successful', function () {
 	            (0, _zapBaseDomData.store)(element, 'key', 'value');
 
 	            expect((0, _zapBaseDomData.retrieve)(element, 'key')).toEqual('value');
 	        });
 
-	        it('zapData.store(Element, "key", 123) should store a number successful', function () {
+	        it('zapDataStore(Element, "key", 123) should store a number successful', function () {
 	            (0, _zapBaseDomData.store)(element, 'key', 123);
 
 	            expect((0, _zapBaseDomData.retrieve)(element, 'key')).toEqual(123);
 	        });
 
-	        it('zapData.store(Element, "key", {lorem:"ipsum"}) should store an object successful', function () {
+	        it('zapDataStore(Element, "key", {lorem:"ipsum"}) should store an object successful', function () {
 	            (0, _zapBaseDomData.store)(element, 'key', {
 	                lorem: 'ipsum'
 	            });
@@ -96,20 +96,20 @@
 	    });
 
 	    describe('retrieve', function () {
-	        it('zapData.retrieve(Element, "key", "fallback") should return the fallback value', function () {
+	        it('zapDataRetrieve(Element, "key", "fallback") should return the fallback value', function () {
 	            expect((0, _zapBaseDomData.retrieve)(element, 'key')).toBeUndefined();
 	            expect((0, _zapBaseDomData.retrieve)(element, 'key', 'fallback')).toEqual('fallback');
 	        });
 	    });
 
 	    describe('clear', function () {
-	        it('zapData.clear(Element, "key") should clear data with the name "key"', function () {
+	        it('zapDataClear(Element, "key") should clear data with the name "key"', function () {
 	            (0, _zapBaseDomData.clear)(element, 'key');
 
 	            expect((0, _zapBaseDomData.retrieve)(element, 'key')).not.toBeDefined();
 	        });
 
-	        it('zapData.clear(Element) should clear all stored data on Element', function () {
+	        it('zapDataClear(Element) should clear all stored data on Element', function () {
 	            (0, _zapBaseDomData.store)(element, 'key1', 'value1');
 	            (0, _zapBaseDomData.store)(element, 'key2', 'value2');
 

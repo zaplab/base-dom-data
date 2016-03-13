@@ -29,19 +29,19 @@ describe('zap-base-dom-data', () => {
     });
 
     describe('store', () => {
-        it('zapData.store(Element, "key", "value") should store a string successful', () => {
+        it('zapDataStore(Element, "key", "value") should store a string successful', () => {
             zapDataStore(element, 'key', 'value');
 
             expect(zapDataRetrieve(element, 'key')).toEqual('value');
         });
 
-        it('zapData.store(Element, "key", 123) should store a number successful', () => {
+        it('zapDataStore(Element, "key", 123) should store a number successful', () => {
             zapDataStore(element, 'key', 123);
 
             expect(zapDataRetrieve(element, 'key')).toEqual(123);
         });
 
-        it('zapData.store(Element, "key", {lorem:"ipsum"}) should store an object successful', () => {
+        it('zapDataStore(Element, "key", {lorem:"ipsum"}) should store an object successful', () => {
             zapDataStore(element, 'key', {
                 lorem: 'ipsum',
             });
@@ -53,20 +53,20 @@ describe('zap-base-dom-data', () => {
     });
 
     describe('retrieve', () => {
-        it('zapData.retrieve(Element, "key", "fallback") should return the fallback value', () => {
+        it('zapDataRetrieve(Element, "key", "fallback") should return the fallback value', () => {
             expect(zapDataRetrieve(element, 'key')).toBeUndefined();
             expect(zapDataRetrieve(element, 'key', 'fallback')).toEqual('fallback');
         });
     });
 
     describe('clear', () => {
-        it('zapData.clear(Element, "key") should clear data with the name "key"', () => {
+        it('zapDataClear(Element, "key") should clear data with the name "key"', () => {
             zapDataClear(element, 'key');
 
             expect(zapDataRetrieve(element, 'key')).not.toBeDefined();
         });
 
-        it('zapData.clear(Element) should clear all stored data on Element', () => {
+        it('zapDataClear(Element) should clear all stored data on Element', () => {
             zapDataStore(element, 'key1', 'value1');
             zapDataStore(element, 'key2', 'value2');
 
